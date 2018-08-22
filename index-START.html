@@ -19,27 +19,59 @@
 
     // Regular
 
+    console.log("Hello");
+
     // Interpolated
+    console.log("Hello I am a %s string!", "string to be passed");
+    // console.log(`Hello I am a ${variable}`)
 
     // Styled
+    console.log("%c I will be styled text!", "font-size: 10px; background-color: orchid");
 
     // warning!
-
+    console.warn("FLY YOU FOOLS!");
     // Error :|
 
-    // Info
+    console.error("something went horribly wrong");
 
-    // Testing
+    // Info
+    console.info("Did you know Dumbledore was gay?");
+    // Testing will only fire if somethings wrong ie: not true
+    //this will not display b/c 1=1
+    console.assert(1 === 1, "That is incorrect");
 
     // clearing
 
-    // Viewing DOM Elements
+    //console.clear();
 
-    // Grouping together
+    // Viewing DOM Elements, gives a dropdown so you can see classlist methods etc.
+    // console.dir(p);
 
-    // counting
+    // Grouping together information under a heading provided in console.group
 
-    // timing
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age *7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    });
+
+    // counting counts how many times you use a specific something (word, number, object, element, etc.)
+    console.count();
+
+    // timing (how long something takes)
+    console.time('Fetching Data');
+    fetch("https://api.github.com/users/wesbos")
+    .then(data => data.json())
+    .then(data => {
+      console.timeEnd("Fetching Data");
+      console.log(data);
+    });
+
+    //table (takes an array (assuming all have same properties) and displays in a neat table)
+
+    console.table(dogs);
 
   </script>
 </body>
